@@ -1,4 +1,4 @@
-date_flight,"AVG(flights) OVER (order by date_flight ROWS BETWEEN 3 PRECEDING AND 1 PRECEDING)"
+date_flight,Avg_Flights_Preceding_3_Days
 2023-09-01,NULL
 2023-09-02,19988.0000
 2023-09-03,18172.5000
