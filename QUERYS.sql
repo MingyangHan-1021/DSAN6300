@@ -5,6 +5,7 @@ join L_AIRLINE_ID on al_perf.dot_id_reporting_airline = L_AIRLINE_ID.ID
 group by  L_AIRLINE_ID.Name
 order by MaxDepDelay asc;
 
+-- 15 rows returned
 
 -- Q2: Find maximal early departures in minutes for each airline. Sort results from largest to smallest. Output airline names.
 select
@@ -16,6 +17,7 @@ join L_AIRLINE_ID
 where al_perf.DepDelay < 0
 group by L_AIRLINE_ID.NAME
 order by Max_Early_Departure desc;
+
 -- 15 rows returned 
 
 
@@ -48,34 +50,38 @@ where avg_departure_delay = (Select MAX(avg_departure_delay) from avg_delay);
 -- Q5: For each airline find an airport where it has the highest average departure delay. Output an airline name, a name of the airport that has the highest average delay, and the value of that average delay.
 with avgdelay as (
     select 
-        Reporting_Airline, 
-        originAirportID, 
-        avg(DepDelayMinutes) as Avg_Departure_Delay
+        dot_id_reporting_airline,
+        originAirportID,
+        avg(DepDelayMinutes) as avg_departure_delay
     from al_perf
-    group by Reporting_Airline, originAirportID
+    group by dot_id_reporting_airline, originAirportID
 ),
 
-Max_Delay_Airline as (
+max_delay_airline as (
     select 
-        Reporting_Airline, 
-        MAX(Avg_Departure_Delay) as Max_Delay_Dep
+        dot_id_reporting_airline,
+        max(avg_departure_delay) as max_delay_dep
     from avgdelay
-    group by Reporting_Airline
+    group by dot_id_reporting_airline
 )
 
 select
-    L_AIRLINE_ID.Name as Airline_Name,   
-    L_AIRPORT_ID.Name as Airport_Name,  
-    avgdelay.Avg_Departure_Delay
+    L_AIRLINE_ID.Name as airline_name,
+    L_AIRPORT_ID.Name as airport_name,
+    avgdelay.avg_departure_delay
 from avgdelay
-join Max_Delay_Airline
-    on avgdelay.Reporting_Airline = Max_Delay_Airline.Reporting_Airline
-    and avgdelay.Avg_Departure_Delay = Max_Delay_Airline.Max_Delay_Dep
+join max_delay_airline
+    on avgdelay.dot_id_reporting_airline = max_delay_airline.dot_id_reporting_airline
+    and avgdelay.avg_departure_delay = max_delay_airline.max_delay_dep
 join L_AIRLINE_ID
-    on avgdelay.Reporting_Airline = substring_index(L_AIRLINE_ID.Name, ': ', -1)
+    on avgdelay.dot_id_reporting_airline = L_AIRLINE_ID.ID
 join L_AIRPORT_ID
     on avgdelay.originAirportID = L_AIRPORT_ID.ID
-order by Airline_Name;
+order by airline_name;
+-- 15 rows returned
+
+
+
 
 
 -- Q6A: Check if your dataset has any canceled flights.
