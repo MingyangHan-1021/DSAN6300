@@ -5,8 +5,8 @@ website:
   title: "Mini project"
   navbar:
     left:
-      - text: report
-        href: report.ipynb
+      - text: Report
+        href: Report.ipynb
       - text: Q1:Max Dep Delay
         href: Q1.ipynb
       - text: Q2:Max Early Dep
