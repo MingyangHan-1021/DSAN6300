@@ -4,6 +4,7 @@ from al_perf
 join L_AIRLINE_ID on al_perf.dot_id_reporting_airline = L_AIRLINE_ID.ID
 group by  L_AIRLINE_ID.Name
 order by MaxDepDelay asc;
+
 -- 15 rows returned
 
 -- Q2: Find maximal early departures in minutes for each airline. Sort results from largest to smallest. Output airline names.
@@ -16,22 +17,20 @@ join L_AIRLINE_ID
 where al_perf.DepDelay < 0
 group by L_AIRLINE_ID.NAME
 order by Max_Early_Departure desc;
+
 -- 15 rows returned 
 
 
 -- Q3: Rank days of the week by the number of flights performed by all airlines on that day (1 is the busiest). Output the day of the week names, number of flights and ranks in the rank increasing order.
-
-select
-    rank() over (order by flight_count desc) as rank_of_day,
-    L_WEEKDAYS.Day as Day_name,
-    flight_count as Number_of_flights
-from (
-    select DayOfWeek, count(*) as flight_count
-    from al_perf
-    group by DayOfWeek
-) as flights
-join L_WEEKDAYS on flights.DayOfWeek = L_WEEKDAYS.Code
-order by number_of_flights desc;
+select 
+	rank() over (order by count(al_perf.DayOfWeek) desc) as rank_of_day,
+	L_WEEKDAYS.Day as Day_Name,
+	count(al_perf.DayOfWeek) AS Number_of_flights
+from al_perf 
+join L_WEEKDAYS 
+on al_perf.DayOfWeek = L_WEEKDAYS.Code
+group by L_WEEKDAYS.Day
+order by Number_of_flights desc;
 -- 7 rows returned 
 
 -- Q4: Find the airport that has the highest average departure delay among all airports. Consider 0 minutes delay for flights that departed early. Output one line of results: the airport name, code, and average delay.
