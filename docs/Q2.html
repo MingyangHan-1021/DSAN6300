@@ -175,6 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#query" id="toc-query" class="nav-link active" data-scroll-target="#query">Query</a></li>
   <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -219,13 +220,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualization" class="level1">
 <h1>Visualization</h1>
-<div id="85a47e64" class="cell">
+<div id="85a47e64" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/Q2.csv"</span>) </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem2_Mingyang_Han_mh2393&gt;.csv"</span>) </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by Max_Early_Departure descending (highest first)</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(<span class="st">"Max_Early_Departure"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -257,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_29304/713072887.py:15: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6287/3953393842.py:15: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 
@@ -271,6 +272,10 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The query shows the earliest departure time for each airline (in minutes). PSA Airlines has the longest early departure at 42 minutes, while Envoy Air has the shortest at 20 minutes.</p>
 
 
 </section>

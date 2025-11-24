@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,9 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -205,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The data used in this report is from <strong>September 2023</strong>, sourced from the U.S. Department of Transportation’s Bureau of Transportation Statistics (BTS). The analysis covers key airline performance metrics, including flight cancellations, flight distances, and the number of flights.</p>
-<div id="a85946a2" class="cell" data-execution_count="2">
+<div id="a85946a2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -222,13 +219,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>L_DISTANCE_GROUP_250 <span class="op">=</span> pd.read_csv(<span class="st">"../../project data/Data/L_DISTANCE_GROUP_250.csv"</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>L_WEEKDAYS <span class="op">=</span> pd.read_csv(<span class="st">"../../project data/Data/L_WEEKDAYS.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_91685/3007574736.py:6: DtypeWarning: Columns (69,76,77,84) have mixed types. Specify dtype option on import or set low_memory=False.
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/120632651.py:9: DtypeWarning: Columns (69,76,77,84) have mixed types. Specify dtype option on import or set low_memory=False.
   al_perf = pd.read_csv("../../project data/Data/al_perf.csv")</code></pre>
 </div>
 </div>
 <section id="airlines-performance-analysis" class="level1">
 <h1>1. Airlines Performance Analysis</h1>
-<div id="f8bdc36b" class="cell" data-execution_count="3">
+<div id="f8bdc36b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge airline names into al_perf using airline ID</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>al_perf <span class="op">=</span> al_perf.merge(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    L_AIRLINE_ID, </span>
@@ -249,167 +246,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>airline_perf[<span class="st">"cancel_rate"</span>] <span class="op">=</span> airline_perf[<span class="st">"total_cancel"</span>] <span class="op">/</span> airline_perf[<span class="st">"total_flights"</span>]</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="acc44db9" class="cell" data-execution_count="4">
+<div id="acc44db9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>airline_perf[<span class="st">"cancel_rate"</span>] <span class="op">=</span> airline_perf[<span class="st">"total_cancel"</span>] <span class="op">/</span> airline_perf[<span class="st">"total_flights"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">avg_arr_delay</th>
-<th data-quarto-table-cell-role="th">avg_dep_delay</th>
-<th data-quarto-table-cell-role="th">total_cancel</th>
-<th data-quarto-table-cell-role="th">total_flights</th>
-<th data-quarto-table-cell-role="th">cancel_rate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Alaska Airlines Inc.: AS</td>
-<td>1.601164</td>
-<td>4.795336</td>
-<td>87.0</td>
-<td>21426.0</td>
-<td>0.004060</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Allegiant Air: G4</td>
-<td>9.306200</td>
-<td>11.010626</td>
-<td>22.0</td>
-<td>6892.0</td>
-<td>0.003192</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>American Airlines Inc.: AA</td>
-<td>8.611584</td>
-<td>14.786057</td>
-<td>640.0</td>
-<td>76972.0</td>
-<td>0.008315</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Delta Air Lines Inc.: DL</td>
-<td>1.125506</td>
-<td>8.480439</td>
-<td>418.0</td>
-<td>81701.0</td>
-<td>0.005116</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Endeavor Air Inc.: 9E</td>
-<td>2.227870</td>
-<td>9.191383</td>
-<td>777.0</td>
-<td>17319.0</td>
-<td>0.044864</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Envoy Air: MQ</td>
-<td>2.458077</td>
-<td>6.411086</td>
-<td>69.0</td>
-<td>18789.0</td>
-<td>0.003672</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Frontier Airlines Inc.: F9</td>
-<td>14.096099</td>
-<td>17.645867</td>
-<td>329.0</td>
-<td>16353.0</td>
-<td>0.020119</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Hawaiian Airlines Inc.: HA</td>
-<td>2.130003</td>
-<td>3.229774</td>
-<td>69.0</td>
-<td>6718.0</td>
-<td>0.010271</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>JetBlue Airways: B6</td>
-<td>29.581846</td>
-<td>33.672844</td>
-<td>724.0</td>
-<td>21412.0</td>
-<td>0.033813</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>PSA Airlines Inc.: OH</td>
-<td>3.121519</td>
-<td>7.892117</td>
-<td>232.0</td>
-<td>16175.0</td>
-<td>0.014343</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Republic Airline: YX</td>
-<td>0.360066</td>
-<td>6.359112</td>
-<td>1707.0</td>
-<td>24839.0</td>
-<td>0.068723</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>SkyWest Airlines Inc.: OO</td>
-<td>4.030539</td>
-<td>8.165868</td>
-<td>230.0</td>
-<td>59245.0</td>
-<td>0.003882</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>Southwest Airlines Co.: WN</td>
-<td>4.870260</td>
-<td>10.199536</td>
-<td>660.0</td>
-<td>117870.0</td>
-<td>0.005599</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Spirit Air Lines: NK</td>
-<td>8.571332</td>
-<td>14.800376</td>
-<td>334.0</td>
-<td>21036.0</td>
-<td>0.015878</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>United Air Lines Inc.: UA</td>
-<td>3.383344</td>
-<td>9.577271</td>
-<td>760.0</td>
-<td>62591.0</td>
-<td>0.012142</td>
-</tr>
-</tbody>
-</table>
-
 </div>
-</div>
-</div>
-<div id="ab2ddea0" class="cell" data-execution_count="5">
+<div id="ab2ddea0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Average Arrival Delay</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'avg_arr_delay'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
@@ -422,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Airline"</span>)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_91685/4214137305.py:4: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/1551814142.py:4: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
 
@@ -436,7 +276,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="8690fad3" class="cell" data-execution_count="6">
+<div id="8690fad3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Average Departure Delay</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'avg_dep_delay'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
@@ -449,7 +289,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Airline"</span>)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_91685/3867151348.py:4: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/3867151348.py:4: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
 
@@ -463,7 +303,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="631d106c" class="cell" data-execution_count="7">
+<div id="631d106c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Total Cancelled Flights</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'total_cancel'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
@@ -477,7 +317,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_91685/3656850973.py:4: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/3656850973.py:4: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
 
@@ -491,7 +331,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="78eb1455" class="cell" data-execution_count="8">
+<div id="78eb1455" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Cancellation Rate - Scatter plot</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'cancel_rate'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
@@ -515,7 +355,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </section>
 <section id="analysis-of-cancellation-of-flights" class="level1">
 <h1>2. Analysis of Cancellation of Flights</h1>
-<div id="3ed2a660" class="cell" data-execution_count="9">
+<div id="3ed2a660" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cancel_df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/cancel.csv"</span>)  <span class="co"># Cancellations by reason</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.pie(cancel_df[<span class="st">'Number_Of_Cancellations'</span>],</span>
@@ -533,7 +373,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="f5dcda2e" class="cell" data-execution_count="10">
+<div id="f5dcda2e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Merge airline names</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> al_perf.merge(L_AIRLINE_ID, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'DOT_ID_Reporting_Airline'</span>, right_on<span class="op">=</span><span class="st">'ID'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -572,7 +412,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </section>
 <section id="analysis-of-flight-distance" class="level1">
 <h1>3. Analysis of Flight Distance</h1>
-<div id="aeb100c0" class="cell" data-execution_count="14">
+<div id="aeb100c0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> al_perf.merge(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    L_DISTANCE_GROUP_250,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span>,              </span>
@@ -600,7 +440,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="987c75c8" class="cell" data-execution_count="22">
+<div id="987c75c8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df1.merge(L_CANCELATION, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'CancellationCode'</span>, right_on<span class="op">=</span><span class="st">'Code'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cellled_df <span class="op">=</span> df2[df2[<span class="st">'Cancelled'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -633,7 +473,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </section>
 <section id="analysis-of-flight-numbers" class="level1">
 <h1>4. Analysis of Flight Numbers</h1>
-<div id="08a44bab" class="cell" data-execution_count="26">
+<div id="08a44bab" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> al_perf.merge(L_WEEKDAYS, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'DayOfWeek'</span>, right_on<span class="op">=</span><span class="st">'Code'</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -666,10 +506,10 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="408cb130" class="cell">
+<div id="408cb130" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Q7.csv (3-day average)</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> pd.read_csv(<span class="st">"../csv/Q7.csv"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem7_Mingyang_Han_mh2393&gt;.csv"</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df_avg[<span class="st">"date_flight"</span>] <span class="op">=</span> pd.to_datetime(df_avg[<span class="st">"date_flight"</span>])</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 从 al_perf 计算每天实际航班数</span></span>

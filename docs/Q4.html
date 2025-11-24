@@ -175,6 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#query" id="toc-query" class="nav-link active" data-scroll-target="#query">Query</a></li>
   <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -219,12 +220,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualization" class="level1">
 <h1>Visualization</h1>
-<div id="bfa48538" class="cell" data-execution_count="3">
+<div id="bfa48538" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load CSV file</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/Q4.csv"</span>) </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem4_Mingyang_Han_mh2393&gt;.csv"</span>) </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the airport name after the colon (e.g., "Coastal Carolina Regional")</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'airport_name_clean'</span>] <span class="op">=</span> df[<span class="st">'Name'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">':'</span>)[<span class="op">-</span><span class="dv">1</span>].strip())</span>
@@ -262,6 +263,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The airport with the longest average departure delay is Coastal Carolina Regional Airport (EWN) in New Bern/Morehead/Beaufort, NC, with an average delay of 256 minutes.</p>
 
 
 </section>

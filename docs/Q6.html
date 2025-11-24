@@ -175,6 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#query" id="toc-query" class="nav-link active" data-scroll-target="#query">Query</a></li>
   <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -248,15 +249,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualization" class="level1">
 <h1>Visualization</h1>
-<div id="3c41a990" class="cell" data-execution_count="11">
+<div id="3c41a990" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/Q6A.csv"</span>)      <span class="co"># Total number of canceled flights</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem6A_Mingyang_Han_mh2393&gt;.csv"</span>)      <span class="co"># Total number of canceled flights</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>cancel_df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/cancel.csv"</span>)  <span class="co"># Cancellations by reason</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>q6b_df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/Q6B.csv"</span>)  <span class="co"># Most frequent cancellation reason per airport</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>q6b_df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem6B_Mingyang_Han_mh2393&gt;.csv"</span>)  <span class="co"># Most frequent cancellation reason per airport</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Big Number Plot: Total canceled flights </span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>num_canceled_flights <span class="op">=</span> df.loc[<span class="dv">0</span>, <span class="st">'num_canceled_flights'</span>]</span>
@@ -318,6 +319,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The query shows that a total of 7,058 flights were canceled. The majority were due to National Air System issues (2,981 cancellations), followed by weather (2,612), carrier-related reasons (1,463), and security (2). Overall, cancellations were mainly caused by system and weather-related factors.</p>
+<p>Among the top 20 airports with the most cancellations, New York and Boston airports mainly experienced cancellations due to system issues, southern and western airports mostly due to weather, and Los Angeles and San Francisco primarily due to carrier-related reasons.</p>
 
 
 </section>

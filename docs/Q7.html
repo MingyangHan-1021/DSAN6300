@@ -175,6 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#query" id="toc-query" class="nav-link active" data-scroll-target="#query">Query</a></li>
   <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -219,12 +220,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualization" class="level1">
 <h1>Visualization</h1>
-<div id="bda10d6a" class="cell">
+<div id="bda10d6a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load CSV</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/Q7.csv"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem7_Mingyang_Han_mh2393&gt;.csv"</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date column to datetime</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"date_flight"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"date_flight"</span>])</span>
@@ -250,6 +251,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The query shows the average number of flights over the preceding 3 days for each day. The results indicate that these three-day averages fluctuate roughly between 17,700 and 19,800, with a slight upward trend overall, especially in the middle and at the end of the month, where they often approach or exceed 19,500.</p>
 
 
 </section>
