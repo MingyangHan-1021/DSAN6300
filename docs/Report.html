@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The data used in this report is from <strong>September 2023</strong>, sourced from the U.S. Department of Transportation’s Bureau of Transportation Statistics (BTS). The analysis covers key airline performance metrics, including flight cancellations, flight distances, and the number of flights.</p>
+<p>The data used in this report covers September 1 to September 30, 2023, showing daily flight operations throughout the entire month. sourced from the U.S. Department of Transportation’s Bureau of Transportation Statistics (BTS). The analysis covers key airline performance metrics, including flight cancellations, flight distances, and the number of flights.</p>
 <div id="a85946a2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>L_DISTANCE_GROUP_250 <span class="op">=</span> pd.read_csv(<span class="st">"../../project data/Data/L_DISTANCE_GROUP_250.csv"</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>L_WEEKDAYS <span class="op">=</span> pd.read_csv(<span class="st">"../../project data/Data/L_WEEKDAYS.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/120632651.py:9: DtypeWarning: Columns (69,76,77,84) have mixed types. Specify dtype option on import or set low_memory=False.
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_13965/120632651.py:9: DtypeWarning: Columns (69,76,77,84) have mixed types. Specify dtype option on import or set low_memory=False.
   al_perf = pd.read_csv("../../project data/Data/al_perf.csv")</code></pre>
 </div>
 </div>
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Airline"</span>)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/1551814142.py:4: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_13965/1551814142.py:4: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
 
@@ -276,6 +276,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>It can be seen that JetBlue Airways has the longest average arrival delay at 29.582 minutes, while Republic Airline has the shortest at only 0.360 minutes. Overall, most airlines have an average delay between 1 and 15 minutes, with a few airlines, such as JetBlue and Frontier, experiencing relatively higher delays.</p>
 <div id="8690fad3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Average Departure Delay</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'avg_dep_delay'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -289,7 +290,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Airline"</span>)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/3867151348.py:4: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_13965/3867151348.py:4: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
 
@@ -303,6 +304,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>This plot shows the average departure delay for each airline. It can be seen that JetBlue Airways has the longest average departure delay at 33.673 minutes, while Hawaiian Airlines has the shortest at only 3.230 minutes. Overall, most airlines have an average delay between 4 and 18 minutes.</p>
 <div id="631d106c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Total Cancelled Flights</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'total_cancel'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -317,7 +319,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_6336/3656850973.py:4: FutureWarning: 
+<pre><code>/var/folders/fd/zfxd46k90qd0bd_xk04w45r40000gn/T/ipykernel_13965/3656850973.py:4: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
 
@@ -331,6 +333,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>This graph shows that Republic Airline had the highest total number of cancelled flights, at 1,707 instances. The next highest was Endeavor Air (777 flights) and United Airlines (760 flights). In contrast, Allegiant Air, Hawaiian Airlines and Envoy Air had the fewest cancelled flights, with a total of less than 100 flights each. Overall, the number of cancelled flights for most airlines was concentrated around several hundred flights, while a few airlines had a higher number of cancellations, indicating that there are significant differences in flight cancellations among airlines.</p>
 <div id="78eb1455" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Cancellation Rate - Scatter plot</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> airline_perf.sort_values(<span class="st">'cancel_rate'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -352,6 +355,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>This graph shows the cancellation rates of flights by various airlines. It can be seen that Republic Airline has the highest cancellation rate at 6.87%, followed by Endeavor Air (4.49%) and JetBlue Airways (3.38%). In comparison, Allegiant Air, Envoy Air and SkyWest Airlines have the lowest cancellation rates, all below 0.5%. Overall, there is a significant difference in cancellation rates among different airlines. Most airlines have cancellation rates below 2%, while a few have higher rates.</p>
 </section>
 <section id="analysis-of-cancellation-of-flights" class="level1">
 <h1>2. Analysis of Cancellation of Flights</h1>
@@ -373,33 +377,34 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>The majority were due to National Air System issues (42.2%), followed by weather (37.0%), carrier-related reasons (20.7%), and security (almost 0). Overall, cancellations were mainly caused by system and weather-related factors.</p>
 <div id="f5dcda2e" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Merge airline names</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge airline names</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> al_perf.merge(L_AIRLINE_ID, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'DOT_ID_Reporting_Airline'</span>, right_on<span class="op">=</span><span class="st">'ID'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Merge cancellation reason names</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge cancellation reason names</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.merge(L_CANCELATION, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'CancellationCode'</span>, right_on<span class="op">=</span><span class="st">'Code'</span>)</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filter only cancelled flights</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter only cancelled flights</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>cancelled_df <span class="op">=</span> df[df[<span class="st">'Cancelled'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Group by airline and cancellation reason</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by airline and cancellation reason</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>cancel_summary <span class="op">=</span> cancelled_df.groupby([<span class="st">'Name_y'</span>, <span class="st">'Reason'</span>]).size().unstack(fill_value<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Calculate total cancellations per airline</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total cancellations per airline</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>cancel_summary[<span class="st">'Total_Cancellations'</span>] <span class="op">=</span> cancel_summary.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Plot stacked bar chart (exclude total column for plotting)</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>cancel_summary.drop(columns<span class="op">=</span><span class="st">'Total_Cancellations'</span>).plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>), colormap<span class="op">=</span><span class="st">'tab20'</span>)</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Number of Cancellations and Composition of Cancellation Reasons by Airline"</span>)</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Airline"</span>)</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Cancellations"</span>)</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Cancellation Reason'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot stacked bar chart (exclude total column for plotting)</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>cancel_summary.drop(columns<span class="op">=</span><span class="st">'Total_Cancellations'</span>).plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>), colormap<span class="op">=</span><span class="st">'tab20'</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Number of Cancellations and Composition of Cancellation Reasons by Airline"</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Airline"</span>)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Cancellations"</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Cancellation Reason'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -409,6 +414,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>The most frequent cancellations of Republic Airline flights are mainly due to National Air System. United Airlines and American Airlines also cancel a large number of flights. The main reasons include system issues and bad weather.</p>
 </section>
 <section id="analysis-of-flight-distance" class="level1">
 <h1>3. Analysis of Flight Distance</h1>
@@ -431,7 +437,8 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Flights"</span>)</span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -440,6 +447,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>This bar chart shows the number of flights grouped by different flight distances. It can be seen that the flights with a distance of 250-499 miles have the largest number, totaling 132,890 flights. The next largest group is 500-749 miles (116,028 flights) and 750-999 miles (92,091 flights). Short-haul flights (less than 250 miles) also account for a certain proportion (67,535 flights), while long-haul flights (2,500 miles and above) are relatively few (11,360 flights). Overall, the number of medium and short-haul flights is significantly higher than that of long-haul flights, indicating that airline operations are mainly focused on short and medium-range routes.</p>
 <div id="987c75c8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df1.merge(L_CANCELATION, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'CancellationCode'</span>, right_on<span class="op">=</span><span class="st">'Code'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cellled_df <span class="op">=</span> df2[df2[<span class="st">'Cancelled'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
@@ -460,8 +468,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Cancellation Reason'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
 <span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -470,6 +477,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>The cancellation situations of different flight distances show significant differences. For short and medium-range flights (250-999 miles), the main reasons are the National Air System and weather factors, while for long-range flights (1,000 miles and above), the cancellations are relatively fewer.</p>
 </section>
 <section id="analysis-of-flight-numbers" class="level1">
 <h1>4. Analysis of Flight Numbers</h1>
@@ -494,10 +502,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -506,44 +511,43 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
-<div id="408cb130" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Q7.csv (3-day average)</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem7_Mingyang_Han_mh2393&gt;.csv"</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df_avg[<span class="st">"date_flight"</span>] <span class="op">=</span> pd.to_datetime(df_avg[<span class="st">"date_flight"</span>])</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 从 al_perf 计算每天实际航班数</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>al_perf[<span class="st">"FlightDate"</span>] <span class="op">=</span> pd.to_datetime(al_perf[<span class="st">"FlightDate"</span>])</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>daily_flights <span class="op">=</span> al_perf.groupby(<span class="st">"FlightDate"</span>).size().reset_index(name<span class="op">=</span><span class="st">"Flights"</span>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 合并每日实际航班数和三天平均</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>df_plot <span class="op">=</span> pd.merge(df_avg, daily_flights, left_on<span class="op">=</span><span class="st">"date_flight"</span>, right_on<span class="op">=</span><span class="st">"FlightDate"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<p>These pictures show the number of flights for each day of the week. Friday has the most flights (100,284), while Tuesday has the fewest (73,166). This trend may be due to business travel being concentrated at the start of the week and leisure travel increasing toward the weekend, resulting in the highest flight numbers on Friday and Saturday.</p>
+<div id="408cb130" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> pd.read_csv(<span class="st">"../csv/mini_project_&lt;problem7_Mingyang_Han_mh2393&gt;.csv"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_avg[<span class="st">"date_flight"</span>] <span class="op">=</span> pd.to_datetime(df_avg[<span class="st">"date_flight"</span>])</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the actual number of flights per day from al_perf</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>al_perf[<span class="st">"FlightDate"</span>] <span class="op">=</span> pd.to_datetime(al_perf[<span class="st">"FlightDate"</span>])</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>daily_flights <span class="op">=</span> al_perf.groupby(<span class="st">"FlightDate"</span>).size().reset_index(name<span class="op">=</span><span class="st">"Flights"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the daily actual flights with the 3-day average flights</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>df_plot <span class="op">=</span> pd.merge(df_avg, daily_flights, left_on<span class="op">=</span><span class="st">"date_flight"</span>, right_on<span class="op">=</span><span class="st">"FlightDate"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘图</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the average flights over the preceding 3 days</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.plot(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Avg_Flights_Preceding_3_Days"</span>], marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, label<span class="op">=</span><span class="st">'Avg Flights Preceding 3 Days'</span>)</span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均过去3天</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.plot(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Avg_Flights_Preceding_3_Days"</span>], marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, label<span class="op">=</span><span class="st">'Avg Flights Preceding 3 Days'</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the actual flights per day</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.plot(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Flights"</span>], marker<span class="op">=</span><span class="st">'s'</span>, color<span class="op">=</span><span class="st">'orange'</span>, label<span class="op">=</span><span class="st">'Actual Flights'</span>)</span>
 <span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 当天航班数</span></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>plt.plot(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Flights"</span>], marker<span class="op">=</span><span class="st">'s'</span>, color<span class="op">=</span><span class="st">'orange'</span>, label<span class="op">=</span><span class="st">'Actual Flights'</span>)</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 在每个点上加数值</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Avg_Flights_Preceding_3_Days"</span>]):</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    plt.text(x, y <span class="op">+</span> <span class="dv">5</span>, <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:.0f}</span><span class="ss">"</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Avg_Flights_Preceding_3_Days"</span>]):</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    plt.text(x, y <span class="op">+</span> <span class="dv">5</span>, <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:.0f}</span><span class="ss">"</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Flights"</span>]):</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    plt.text(x, y <span class="op">+</span> <span class="dv">5</span>, <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(df_plot[<span class="st">"date_flight"</span>], df_plot[<span class="st">"Flights"</span>]):</span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    plt.text(x, y <span class="op">+</span> <span class="dv">5</span>, <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Flights Over Previous 3 Days vs Actual Flights"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Date"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Flights"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Flights Over Previous 3 Days vs Actual Flights"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Date"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Flights"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -552,6 +556,7 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 </div>
 </div>
+<p>This set of data shows the changes in the actual daily flight numbers compared to the average flight numbers over the past three days. Overall, there is a certain pattern in the number of flights: there are fewer flights during weekdays, and the number increases significantly on weekends and Fridays. The average number of flights over the three days remains between 17,700 and 19,800, indicating that there is a cyclical fluctuation in flight schedules, showing a regular trend of lower numbers on weekdays and higher numbers on weekends.</p>
 
 
 </section>
